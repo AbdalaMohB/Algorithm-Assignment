@@ -31,14 +31,9 @@ class Graph:
 
     # make an MST using Kruskal's algorithm
     def KruskalMST(self):
-
-        # This will store the result
         result = []
-
         i = 0
-
         e = 0
-
         # Sort all the edges
         self.graph = sorted(self.graph,
                             key=lambda item: item[2])
@@ -50,8 +45,6 @@ class Graph:
         for node in range(self.V):
             parent.append(node)
             rank.append(0)
-
-        # Number of edges to be taken is less than V-1
         while e < self.V - 1:
 
             # Pick the smallest edge and increment the index for next iteration
@@ -66,11 +59,10 @@ class Graph:
                 self.union(parent, rank, x, y)
 
         minimumCost = 0
-        print("Edges in the constructed MST")
         for u, v, weight in result:
             minimumCost += weight
             print("%d -- %d == %d" % (u, v, weight))
-        print("Minimum Spanning Tree", minimumCost)
+        print("MST ", minimumCost)
 
 g = Graph(5)
 g.addEdge(0, 1, 11)
